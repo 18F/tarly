@@ -2,7 +2,7 @@ require 'pry'
 
 module Samwise
   module Util
-    def self.format_duns(duns: duns)
+    def self.format_duns(duns:)
       if duns.length == 9
         duns = "#{duns}0000"
       elsif duns.length == 8

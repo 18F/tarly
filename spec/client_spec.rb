@@ -9,6 +9,8 @@ describe Samwise::Client, vcr: { cassette_name: "Samwise::Client", record: :new_
   let(:non_existent_duns) { '0000001000000' }
 
   context '#duns_is_valid?' do
+    before(:all) { ENV['DATA_DOT_GOV_API_KEY'] = 'fakeapikey' }
+    
     it "should verify that a 9 digit DUNS number exists" do
       client = Samwise::Client.new(api_key: api_key)
       response = client.duns_is_valid?(duns: nine_duns)
