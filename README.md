@@ -61,7 +61,7 @@ client.excluded?(duns: '080037478')
 ### Verify Vendor is a small business
 
 ```ruby
-client.small_business?(duns: '080037478')
+client.get_vendor_summary(duns: '080037478')[:small_business]
 #=> false
 ```
 
@@ -253,10 +253,10 @@ client.get_sam_status(duns: )
 In your Gemfile:
 
 ```ruby
-gem 'samwise', github: '18f/samwise'
+gem 'samwise'
 ```
 
-### Coming Soon
+At the command line:
 
 ```
 $ gem install samwise
